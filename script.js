@@ -1,22 +1,38 @@
 
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Pobranie elementów menu
+    
+    // --- 1. Obsługa Menu Mobilnego ---
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
-    // Funkcja otwierania/zamykania menu na telefonie
-    if(menuToggle) {
+    if (menuToggle) {
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('open');
         });
     }
 
-    // Zamykanie menu po kliknięciu w link (żeby nie zasłaniało strony)
+    // Zamykanie menu po kliknięciu
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
-            menuToggle.classList.remove('open');
         });
     });
+
+    // --- 2. Animacje podczas przewijania (Scroll Observer) ---
+    const observerOptions = {
+        threshold: 0.1 // Animacja startuje gdy 10% elementu jest widoczne
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Znajdź wszystkie elementy do animacji
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    animatedElements.forEach(el => observer.observe(el));
 });
