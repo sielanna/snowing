@@ -1,0 +1,87 @@
+
+       /* GŁÓWNE ZMIENNE I KOLORY */
+:root {
+    --primary: #0a192f; /* Granat */
+    --accent: #ff4500;  /* Pomarańcz */
+    --white: #ffffff;
+    --light-bg: #f8f9fa;
+    --text: #333333;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--text); }
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--primary); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+a { text-decoration: none; }
+
+/* NAWIGACJA */
+.navbar { background: var(--primary); padding: 15px 0; position: sticky; top: 0; z-index: 999; }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { color: var(--white); font-size: 1.4rem; font-weight: bold; }
+.nav-menu { list-style: none; display: flex; align-items: center; }
+.nav-link { color: var(--white); margin-left: 20px; font-weight: 500; transition: 0.3s; }
+.nav-link:hover { color: var(--accent); }
+.btn-cta { background: var(--accent); padding: 8px 15px; border-radius: 5px; }
+
+/* HERO (ZDJĘCIE W TLE - AUTOMATYCZNE Z UNSPLASH) */
+.hero {
+    height: 90vh;
+    /* Link do zdjęcia narciarza w górach: */
+    background: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.6); }
+.hero-content { position: relative; z-index: 2; padding: 20px; }
+.hero h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+
+.hero-buttons { margin-top: 30px; }
+.btn-main { background: var(--accent); color: var(--white); padding: 12px 30px; border-radius: 5px; margin: 10px; font-weight: bold; }
+.btn-outline { border: 2px solid var(--white); color: var(--white); padding: 10px 30px; border-radius: 5px; margin: 10px; font-weight: bold; }
+.btn-main:hover { background: #e03e00; }
+.btn-outline:hover { background: var(--white); color: var(--primary); }
+
+/* SEKCJE */
+section { padding: 60px 0; }
+.section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; }
+
+/* DLACZEGO MY */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+.feature-item i { font-size: 3rem; color: var(--accent); margin-bottom: 15px; }
+
+/* CENNIK TABELA */
+.pricing { background: var(--light-bg); }
+.styled-table { width: 100%; border-collapse: collapse; background: var(--white); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.styled-table th { background: var(--primary); color: var(--white); padding: 15px; text-align: left; }
+.styled-table td { padding: 15px; border-bottom: 1px solid #ddd; }
+.highlight { color: var(--accent); font-weight: bold; }
+.table-responsive { overflow-x: auto; }
+
+/* WYPOŻYCZALNIA (KAFELKI) */
+.rentals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+.rental-card { background: var(--white); border: 1px solid #eee; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.rental-card .price { display: block; font-size: 1.2rem; color: var(--accent); font-weight: bold; margin-top: 10px; }
+
+/* LOKALIZACJA */
+.location-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+.slopes-list li { margin: 10px 0; list-style: circle inside; }
+.contact-details { margin-top: 20px; font-size: 1.1rem; }
+.contact-details a { color: var(--accent); font-weight: bold; }
+
+/* STOPKA */
+footer { background: var(--primary); color: #ccc; text-align: center; padding: 20px; font-size: 0.9rem; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .menu-toggle { display: block; cursor: pointer; color: white; font-size: 1.5rem; }
+    .bar { display: block; width: 25px; height: 3px; background: white; margin: 5px 0; }
+    .nav-menu { position: fixed; left: -100%; top: 60px; flex-direction: column; background: var(--primary); width: 100%; padding: 20px 0; transition: 0.3s; }
+    .nav-menu.active { left: 0; }
+    .nav-link { margin: 15px 0; display: block; }
+    .location-wrapper { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.8rem; }
+}
