@@ -1,5 +1,7 @@
 
-/* === LIQUID GLASS THEME === */
+
+
+/* === LIQUID GLASS THEME (Wersja Płaska) === */
 :root {
     --glass-bg: rgba(255, 255, 255, 0.1); /* Półprzezroczyste białe szkło */
     --glass-border: rgba(255, 255, 255, 0.2);
@@ -15,8 +17,9 @@ body {
     font-family: 'Outfit', sans-serif;
     color: var(--text-main);
     overflow-x: hidden;
-    /* TŁO GÓRSKIE - CIEMNE I KLIMATYCZNE */
-    background: url('https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=2000&auto=format&fit=crop') no-repeat center center fixed;
+    /* --- ZMIANA TŁA TUTAJ --- */
+    /* Nowe, epickie zdjęcie gór w nocy */
+    background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2000&auto=format&fit=crop') no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
 }
@@ -25,7 +28,7 @@ body {
 .bg-layer {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(15, 23, 42, 0.75); /* Granatowy filtr */
+    background: rgba(15, 23, 42, 0.6); /* Lekkie przyciemnienie, żeby tekst był czytelny */
     z-index: -2;
 }
 
@@ -36,7 +39,7 @@ body {
 .shape {
     position: absolute;
     filter: blur(80px);
-    opacity: 0.6;
+    opacity: 0.5;
     animation: float 20s infinite alternate;
 }
 .shape-1 {
